@@ -37,18 +37,20 @@ Algorithm / Data Structure Operation
 - [x] Simplified lightweight motion guidelines (`docs/04-MOTION-AND-FEEL.md`)
 - [x] Master Day-by-Day Implementation Plan & Syllabus Mapping (`IMPLEMENTATION.md`)
 - [x] Operational Directives & Tutor Protocol established (`rules.md`)
-- [ ] **Day 1**: Project Initialization, `.gitignore`, MIT License, Design Tokens & Theme Toggle *(Ready to start upon your command!)*
+- [x] `.gitignore` & MIT `LICENSE` configured
+- [x] Git repository initialized & pushed to GitHub (`main` branch tracking `origin/main`)
+- [🔄] **Day 1 (IN PROGRESS)**: Design Tokens (`tokens.css`), Base Reset (`base.css`), Layout (`layout.css`), Storage Wrapper (`storage.js`), Theme System (`theme.js`), and `index.html` skeleton.
 
 ---
 
 ## 🎯 Next Logical Step
 
-**Day 1 Setup**:
-- Create `.gitignore` & `LICENSE` (MIT).
-- Initialize Git repository.
-- Build root folder structure.
-- Write CSS Design Tokens (`tokens.css`), Base Reset (`base.css`), and Layout (`layout.css`).
-- Build Header, Footer, and Theme Toggle (`storage.js`, `theme.js`).
+**Day 1 Implementation (Manual Handoff)**:
+- User creates `styles/tokens.css`, `styles/base.css`, `styles/layout.css`.
+- User creates `scripts/core/storage.js` and `scripts/core/theme.js`.
+- User creates `index.html`.
+- User creates theory note `/theory_concepts/01_variables_storage_and_tokens.md`.
+- User tests theme toggle and commits Day 1.
 
 ---
 

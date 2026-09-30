@@ -1,0 +1,58 @@
+/* ==========================================
+   AlgoVerse — Design Tokens (tokens.css)
+   Graphite & Amber Theme System
+   ========================================== */
+
+:root {
+  /* Dark Theme Colors (Default) */
+  --bg-primary: #0f1117;
+  --bg-surface: #1a1d24;
+  --bg-card: #222631;
+  
+  --text-primary: #f0f2f5;
+  --text-secondary: #9da5b4;
+  --text-muted: #626a79;
+  
+  --accent-color: #ffb020;        /* Amber */
+  --accent-hover: #e09816;
+  --accent-subtle: rgba(255, 176, 32, 0.15);
+  
+  --border-color: #2e3440;
+  --border-focus: #ffb020;
+  
+  /* Visualization Color Tokens */
+  --viz-default: #3b82f6;        /* Blue */
+  --viz-compare: #f59e0b;        /* Amber/Orange */
+  --viz-swap: #ef4444;           /* Red */
+  --viz-sorted: #10b981;         /* Emerald Green */
+  --viz-pivot: #8b5cf6;          /* Purple */
+
+  /* Simple Durations & Motion */
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --ease-standard: ease;
+  
+  /* Layout Spacing & Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --max-width: 1200px;
+}
+
+/* Light Theme Override */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #f1f5f9;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  --accent-color: #d97706;        /* Deep Amber */
+  --accent-hover: #b45309;
+  --accent-subtle: rgba(217, 119, 6, 0.15);
+  
+  --border-color: #e2e8f0;
+  --border-focus: #d97706;
+}
