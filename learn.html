@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn & Catalog — AlgoVerse</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        Algo<span>Verse</span>
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="learn.html" class="nav-link active">Learn</a></li>
+          <li><a href="visualizer.html" class="nav-link">Visualizer</a></li>
+          <li><a href="playground.html" class="nav-link">Playground</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+        ☀️ Light Mode
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Shell -->
+  <main class="container">
+    <div style="margin-bottom: 2.5rem;">
+      <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem;">DSA Catalog & Topics</h1>
+      <p style="color: var(--text-secondary);">Browse, search, and visualize algorithms and data structure operations.</p>
+    </div>
+
+    <!-- Filter & Search Controls -->
+    <div class="filter-bar">
+      <!-- Search Input -->
+      <input type="text" id="catalog-search" class="search-input" placeholder="Search algorithms, operations, structures...">
+      
+      <!-- Category Filter Pills -->
+      <div class="filter-pills">
+        <button class="pill-btn active" data-category="all">All</button>
+        <button class="pill-btn" data-category="sorting">Sorting</button>
+        <button class="pill-btn" data-category="searching">Searching</button>
+        <button class="pill-btn" data-category="structures">Data Structures</button>
+      </div>
+    </div>
+
+    <!-- Results Counter -->
+    <div style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;" id="results-count">
+      Loading topics...
+    </div>
+
+    <!-- Dynamic Catalog Card Grid -->
+    <div id="catalog-grid" class="card-grid"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AlgoVerse. Built with Vanilla JavaScript for Viva & Web Fundamentals.</p>
+    </div>
+  </footer>
+
+  <!-- Script Modules -->
+  <script type="module">
+    import { ThemeManager } from './scripts/core/theme.js';
+    import './scripts/pages/learn.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeManager = new ThemeManager();
+      themeManager.init();
+    });
+  </script>
+</body>
+</html>

@@ -13,3 +13,13 @@ node_modules/
 
 # Temporary / Scratch
 scratch/
+
+
+# Internal Docs, Rules, Assets & Study Notes (Keep Local Only)
+assets/
+docs/
+rules.md
+SOUL.md
+CHALLENGES.md
+IMPLEMENTATION.md
+theory_concepts/

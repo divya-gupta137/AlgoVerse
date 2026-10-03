@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
 
@@ -41,11 +42,55 @@
     </div>
   </header>
 
-  <!-- Main Content Shell -->
+  <!-- Main Landing Content -->
   <main class="container">
+    <!-- Hero Section -->
     <section class="hero-placeholder">
-      <h1>Welcome to <span>AlgoVerse</span></h1>
-      <p>Interactive DSA Learning & Step-by-Step Visualization Engine.</p>
+      <h1>Master DSA <span>Step-by-Step</span></h1>
+      <p>Interactive Data Structures & Algorithms visualizer engine built with pure Vanilla JavaScript.</p>
+      
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+        <a href="learn.html" class="btn btn-primary">
+          Explore Catalog →
+        </a>
+        <a href="visualizer.html?topic=sorting&algo=bubble-sort" class="btn btn-secondary">
+          Open Visualizer ⚡
+        </a>
+      </div>
+    </section>
+
+    <!-- Key Feature Grid -->
+    <section style="margin-top: 4rem;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Why AlgoVerse?</h2>
+      
+      <div class="card-grid">
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3 class="card-title">⚡ Reusable Frame Engine</h3>
+            </div>
+            <p class="card-desc">Algorithms generate state snapshots (frames) decoupling calculation logic completely from DOM playback.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3 class="card-title">🔍 Interactive Control</h3>
+            </div>
+            <p class="card-desc">Play, pause, step forward, step backward, adjust speed (0.5x–4x), or scrub through the timeline freely.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3 class="card-title">🎓 Code & Narration Sync</h3>
+            </div>
+            <p class="card-desc">Watch active code line numbers highlight dynamically alongside plain English explanations for every step.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -56,11 +101,10 @@
     </div>
   </footer>
 
-  <!-- Entry Script (ES Module) -->
+  <!-- Entry Script -->
   <script type="module">
     import { ThemeManager } from './scripts/core/theme.js';
     
-    // Initialize Theme System when DOM is ready
     document.addEventListener('DOMContentLoaded', () => {
       const themeManager = new ThemeManager();
       themeManager.init();
