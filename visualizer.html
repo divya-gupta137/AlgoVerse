@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Visualizer — AlgoVerse</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        Algo<span>Verse</span>
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="learn.html" class="nav-link">Learn</a></li>
+          <li><a href="visualizer.html" class="nav-link active">Visualizer</a></li>
+          <li><a href="playground.html" class="nav-link">Playground</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+        ☀️ Light Mode
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Shell -->
+  <main class="container">
+    <!-- Title & Category Header -->
+    <div class="visualizer-header">
+      <div>
+        <h1 id="algo-title" style="font-size: 2.25rem; margin-bottom: 0.25rem;">Bubble Sort</h1>
+        <span id="algo-category" class="badge badge-sorting">Sorting</span>
+      </div>
+      
+      <a href="learn.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+        ← Back to Catalog
+      </a>
+    </div>
+
+    <!-- Visualization Viewport Container -->
+    <div id="visualization-viewport" class="visualization-viewport"></div>
+
+    <!-- Transport Controls Bar -->
+    <div class="transport-bar">
+      <div class="transport-controls-row">
+        <div class="transport-btn-group">
+          <button id="btn-reset" class="transport-btn">⏮️ Reset</button>
+          <button id="btn-step-prev" class="transport-btn">⏪ Step Prev</button>
+          <button id="btn-play-pause" class="transport-btn active">▶️ Play</button>
+          <button id="btn-step-next" class="transport-btn">⏩ Step Next</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <label for="select-speed" style="font-size: 0.85rem; color: var(--text-secondary);">Speed:</label>
+          <select id="select-speed" class="speed-select">
+            <option value="0.5">0.5x (Slow)</option>
+            <option value="1" selected>1.0x (Normal)</option>
+            <option value="2">2.0x (Fast)</option>
+            <option value="4">4.0x (Ultra)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <input type="range" id="timeline-scrubber" class="scrubber-slider" min="0" max="0" value="0">
+        <span id="step-counter" class="step-badge">Step 0 of 0</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AlgoVerse. Built with Vanilla JavaScript for Viva & Web Fundamentals.</p>
+    </div>
+  </footer>
+
+    <!-- Script Modules -->
+  <script type="module">
+    import { ThemeManager } from './scripts/core/theme.js';
+    import './scripts/pages/visualizer.js';
+
+    // Initialize Theme System
+    const themeManager = new ThemeManager();
+    themeManager.init();
+  </script>
+</body>
+</html>

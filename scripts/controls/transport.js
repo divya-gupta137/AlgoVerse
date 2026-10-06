@@ -1,4 +1,7 @@
-/*AlgoVerse — Transport Controls Controller Binds UI buttons (Play, Pause, Step, Speed, Scrubber) to the Player engine.*/
+/**
+ * AlgoVerse — Transport Controls Controller
+ * Binds UI buttons (Play, Pause, Step, Speed, Scrubber) to the Player engine.
+ */
 
 import { PLAYER_STATE } from '../core/player.js';
 
@@ -16,7 +19,9 @@ export class TransportController {
     this.stepCounter = document.getElementById('step-counter');
   }
 
-/*Bind DOM event listeners and register player callbacks.*/
+  /**
+   * Bind DOM event listeners and register player state callbacks.
+   */
   init() {
     // 1. Play / Pause Button Click
     if (this.btnPlayPause) {
@@ -60,9 +65,8 @@ export class TransportController {
       });
     }
 
-    // 7. Subscribe to Player Callbacks
+    // 7. Subscribe to Player State Callback
     this.player.onStateChange = (state) => this.updateStateUI(state);
-    this.player.onFrameChange = (frame, index, total) => this.updateFrameUI(index, total);
   }
 
   /**

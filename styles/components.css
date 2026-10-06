@@ -271,3 +271,96 @@
   min-width: 110px;
   text-align: right;
 }
+
+
+
+/* ==========================================
+   Visualizer Viewport & Array Bars Styles
+   ========================================== */
+
+.visualizer-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.visualization-viewport {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  height: 380px;
+  width: 100%;
+  padding: 2.5rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-wrapper {
+  flex: 1;
+  max-width: 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.bar {
+  width: 100%;
+  background-color: var(--viz-default);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: height var(--dur-base) var(--ease-standard),
+              background-color var(--dur-fast) var(--ease-standard),
+              transform var(--dur-fast) var(--ease-standard);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+}
+
+.bar-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.bar.highlight-compare {
+  background-color: var(--viz-compare);
+  transform: scaleY(1.03);
+}
+
+.bar.highlight-swap {
+  background-color: var(--viz-swap);
+  transform: scaleY(1.05);
+}
+
+.bar.highlight-sorted {
+  background-color: var(--viz-sorted);
+}
+
+.bar.highlight-pivot {
+  background-color: var(--viz-pivot);
+}
+
+.pointer-badge {
+  position: absolute;
+  top: -26px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--accent-subtle);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-color);
+}
