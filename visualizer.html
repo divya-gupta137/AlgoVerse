@@ -54,10 +54,44 @@
       </a>
     </div>
 
-    <!-- Visualization Viewport Container -->
+    <!-- Input Control Deck -->
+    <div class="input-control-card">
+      <div style="flex: 1;">
+        <label for="custom-array-input" style="font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">
+          Custom Array Input (Comma separated):
+        </label>
+        <div class="input-group">
+          <input type="text" id="custom-array-input" class="custom-input" value="45, 18, 85, 32, 92, 23, 67, 12" placeholder="e.g. 25, 12, 40, 8">
+          <button id="btn-apply-input" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            Apply ⚡
+          </button>
+          <button id="btn-random-input" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            🎲 Random
+          </button>
+        </div>
+        <div id="input-error-msg" class="error-banner"></div>
+      </div>
+    </div>
+
+    <!-- Main Visualization Viewport Container -->
     <div id="visualization-viewport" class="visualization-viewport"></div>
 
-    <!-- Transport Controls Bar -->
+      <!-- Divide & Conquer Recursion Tree Section -->
+    <div id="tree-section" class="tree-card" style="display: none; margin-top: 1.5rem;">
+      <div class="tree-header">
+        <h3 style="font-size: 1.1rem; color: var(--text-primary); margin: 0;">🌳 Recursion Tree Visualization</h3>
+        <span class="badge badge-sorting">Divide & Conquer Tree</span>
+      </div>
+      <div id="tree-viewport" class="tree-viewport"></div>
+    </div>
+
+
+    <!-- Step Narration Box -->
+    <div class="narration-box">
+      💬 <span id="narration-text">Initializing visualization...</span>
+    </div>
+
+    <!-- Transport Controls & Stats Bar -->
     <div class="transport-bar">
       <div class="transport-controls-row">
         <div class="transport-btn-group">
@@ -65,6 +99,16 @@
           <button id="btn-step-prev" class="transport-btn">⏪ Step Prev</button>
           <button id="btn-play-pause" class="transport-btn active">▶️ Play</button>
           <button id="btn-step-next" class="transport-btn">⏩ Step Next</button>
+        </div>
+
+        <!-- Stats Counters -->
+        <div class="stats-row" style="margin-top: 0;">
+          <div class="stat-badge-card">
+            🔍 Comparisons: <span id="stat-comparisons" class="stat-val">0</span>
+          </div>
+          <div class="stat-badge-card">
+            🔄 Swaps: <span id="stat-swaps" class="stat-val">0</span>
+          </div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -92,12 +136,11 @@
     </div>
   </footer>
 
-    <!-- Script Modules -->
+  <!-- Script Modules -->
   <script type="module">
     import { ThemeManager } from './scripts/core/theme.js';
     import './scripts/pages/visualizer.js';
 
-    // Initialize Theme System
     const themeManager = new ThemeManager();
     themeManager.init();
   </script>
