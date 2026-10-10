@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoVerse — JavaScript Execution Playground</title>
+  <meta name="description" content="Interactive browser JavaScript code editor, preset DSA scripts, and live console output window.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        Algo<span>Verse</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="learn.html" class="nav-link">Learn</a></li>
+          <li><a href="visualizer.html" class="nav-link">Visualizer</a></li>
+          <li><a href="playground.html" class="nav-link active">Playground ⚡</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+        ☀️ Light Mode
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Playground Container -->
+  <main class="container playground-page">
+    
+    <!-- Top Action Toolbar -->
+    <div class="playground-toolbar">
+      <div class="toolbar-left">
+        <label for="preset-select" class="preset-label">Preset DSA Template:</label>
+        <select id="preset-select" class="custom-select">
+          <option value="bubble-sort">1. Custom Bubble Sort Execution</option>
+          <option value="array-transform">2. Array Map & Filter Transformation</option>
+          <option value="stack-lifo">3. Stack Data Structure (LIFO)</option>
+          <option value="fibonacci">4. Recursive Fibonacci & Timing</option>
+        </select>
+      </div>
+
+      <div class="toolbar-right">
+        <button id="btn-run-code" class="btn btn-primary btn-run">⚡ Run Code</button>
+        <button id="btn-clear-console" class="btn btn-secondary">🧹 Clear Console</button>
+        <button id="btn-reset-code" class="btn btn-secondary">🔄 Reset</button>
+      </div>
+    </div>
+
+    <!-- Split Screen IDE Layout -->
+    <div class="playground-grid">
+      
+      <!-- Left: Code Editor Container -->
+      <div class="editor-container-card">
+        <div class="editor-header">
+          <span class="tab-title"><span>📄</span> script.js</span>
+          <span class="editor-status">JS Sandbox Ready</span>
+        </div>
+        
+        <div class="editor-body">
+          <div id="line-numbers" class="line-numbers-gutter">1</div>
+          <textarea id="code-editor" class="code-editor-textarea" spellcheck="false" autocomplete="off"></textarea>
+        </div>
+      </div>
+
+      <!-- Right: Live Console Terminal -->
+      <div class="terminal-container-card">
+        <div class="terminal-header">
+          <span class="terminal-title"><span>💻</span> Output Terminal</span>
+          <span id="exec-status-badge" class="badge-status">Idle</span>
+        </div>
+
+        <div id="terminal-output" class="terminal-body">
+          <div class="term-line term-info">> AlgoVerse Terminal Initialized. Click 'Run Code' to execute JavaScript.</div>
+        </div>
+
+        <div class="terminal-footer">
+          <span id="exec-time-stat">Duration: -- ms</span>
+          <span>Status: Safe Sandbox</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AlgoVerse. Interactive JavaScript Playground for Viva Defense & Web Fundamentals.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="scripts/pages/playground.js"></script>
+  <script type="module">
+    import { ThemeManager } from './scripts/core/theme.js';
+    const themeManager = new ThemeManager();
+    themeManager.init();
+  </script>
+</body>
+</html>
