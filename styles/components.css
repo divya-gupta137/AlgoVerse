@@ -584,3 +584,290 @@
 .line-text {
   color: var(--text-primary);
 }
+
+/* ==========================================
+   Stack, Queue & String Data Structure Styles
+   ========================================== */
+
+/* Stack Visualizer */
+.stack-visualizer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.stack-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  border-left: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  border-bottom: 4px solid var(--accent-color);
+  padding: 0.75rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.stack-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
+}
+
+.stack-item.stack-item-active {
+  border-color: var(--accent-color);
+  background-color: rgba(245, 158, 11, 0.15);
+  transform: scale(1.02);
+}
+
+.stack-item.stack-item-swap {
+  border-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.stack-item.stack-item-sorted {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.stack-pointer-badge {
+  position: absolute;
+  left: -90px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--accent-subtle);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-color);
+}
+
+.stack-base-label {
+  margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Queue Visualizer */
+.queue-visualizer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+.queue-label-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.queue-body {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-top: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  padding: 1rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.queue-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
+  min-width: 65px;
+}
+
+.queue-item.queue-item-active {
+  border-color: var(--accent-color);
+  background-color: rgba(245, 158, 11, 0.15);
+  transform: translateY(-4px);
+}
+
+.queue-item.queue-item-swap {
+  border-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.queue-item.queue-item-sorted {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.queue-pointer-badge {
+  position: absolute;
+  top: -26px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--accent-subtle);
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-color);
+}
+
+/* String Visualizer */
+.string-visualizer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.char-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
+  min-width: 70px;
+}
+
+.char-box.char-box-active {
+  border-color: var(--accent-color);
+  background-color: rgba(245, 158, 11, 0.15);
+  transform: translateY(-4px);
+}
+
+.char-box.char-box-sorted {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.char-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.char-ascii {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.char-idx {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.char-pointer-badge {
+  position: absolute;
+  top: -26px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--accent-subtle);
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-color);
+}
+
+
+/* ==========================================
+   Interactive Operation Control Deck Styles
+   ========================================== */
+
+.op-deck-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.op-deck-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--dur-fast) var(--ease-standard);
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.btn-push {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-push:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.btn-pop {
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-pop:hover {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.btn-peek {
+  background-color: #f59e0b;
+  color: #000000;
+  border: none;
+}
+
+.btn-peek:hover {
+  background-color: #d97706;
+  color: #000000;
+}

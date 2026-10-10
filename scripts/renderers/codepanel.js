@@ -1,6 +1,5 @@
 /**
- * AlgoVerse — Code Panel Syntax & Active Line Renderer
- * Renders algorithm code snippets and highlights the current active executing line (codeLine).
+ * AlgoVerse — VS Code Style Syntax & Active Code Line Renderer
  */
 
 export const ALGORITHM_CODE_SNIPPETS = {
@@ -76,32 +75,47 @@ export const ALGORITHM_CODE_SNIPPETS = {
     '  }',
     '  return -1;',
     '}'
+  ],
+  'stack-ops': [
+    'class Stack {',
+    '  push(val) { this.items.push(val); } // LIFO Push',
+    '  peek() { return this.items[this.items.length - 1]; }',
+    '  pop() { return this.items.pop(); } // LIFO Pop',
+    '}'
+  ],
+  'queue-ops': [
+    'class Queue {',
+    '  enqueue(val) { this.items.push(val); } // FIFO Rear',
+    '  dequeue() { return this.items.shift(); } // FIFO Front',
+    '}'
   ]
 };
 
 export class CodePanelRenderer {
   constructor(containerElement) {
     this.container = containerElement;
-    this.currentAlgo = null;
   }
 
   loadAlgorithmCode(algoId) {
-    this.currentAlgo = algoId;
     const lines = ALGORITHM_CODE_SNIPPETS[algoId] || [];
     if (!this.container) return;
 
     this.container.innerHTML = `
       <div class="code-panel-card">
         <div class="code-header">
-          <span>💻 Executing Code Snippet</span>
+          <span style="display: flex; align-items: center; gap: 0.4rem;">
+            <span style="color: #61afef;">⚡</span> VS Code Execution Sandbox
+          </span>
           <span class="code-lang-tag">JavaScript</span>
         </div>
-        <pre class="code-block"><code>${lines.map((line, idx) => `
-          <div class="code-line" data-line="${idx + 1}">
-            <span class="line-num">${idx + 1}</span>
-            <span class="line-text">${this.escapeHtml(line)}</span>
-          </div>
-        `).join('')}</code></pre>
+        <div class="code-block">
+          ${lines.map((line, idx) => `
+            <div class="code-line" data-line="${idx + 1}">
+              <span class="line-num">${idx + 1}</span>
+              <span class="line-text">${this.colorizeSyntax(line)}</span>
+            </div>
+          `).join('')}
+        </div>
       </div>
     `;
   }
@@ -119,10 +133,17 @@ export class CodePanelRenderer {
     }
   }
 
-  escapeHtml(str) {
-    return str
+  colorizeSyntax(rawLine) {
+    const escaped = rawLine
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
+
+    // VS Code Syntax Colorizing Regex Rules
+    return escaped
+      .replace(/(\/\/.+$)/g, '<span class="syn-cm">$1</span>') // Comments
+      .replace(/\b(function|const|let|var|if|else|while|for|return|class)\b/g, '<span class="syn-kw">$1</span>') // Keywords
+      .replace(/\b(swap|bubbleSort|selectionSort|insertionSort|mergeSort|quickSort|linearSearch|binarySearch|push|pop|peek|enqueue|dequeue|shift)\b/g, '<span class="syn-fn">$1</span>') // Functions
+      .replace(/\b(\d+)\b/g, '<span class="syn-num">$1</span>'); // Numbers
   }
 }
