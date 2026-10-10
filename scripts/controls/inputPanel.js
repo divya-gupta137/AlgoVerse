@@ -1,6 +1,6 @@
 /**
  * AlgoVerse — Context-Aware Dynamic Input & Operation Panel Controller
- * Renders user-driven action forms for Searching, Stack, Queue, Linked List, Arrays & Strings.
+ * Renders user-driven action forms for Searching, Stack, Queue, Linked List, Recursion, Arrays & Strings.
  */
 
 export class InputPanelController {
@@ -22,7 +22,24 @@ export class InputPanelController {
   renderDeck() {
     if (!this.container) return;
 
-    if (this.algo === 'linked-list') {
+    if (this.algo === 'recursion-ops') {
+      this.container.innerHTML = `
+        <div class="op-deck-container">
+          <label style="font-size: 0.85rem; color: var(--text-secondary);">Interactive Recursion Call Stack & Tree Visualizer:</label>
+          <div class="op-deck-row">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <label style="font-size: 0.85rem; color: var(--text-secondary);">Input N (1-6):</label>
+              <input type="number" id="rec-n-input" class="custom-input" style="max-width: 90px;" min="1" max="6" value="4">
+            </div>
+            <button id="btn-rec-factorial" class="btn btn-primary" style="background: #8b5cf6; border: none;">🪆 Factorial (Linear Stack)</button>
+            <button id="btn-rec-fibonacci" class="btn btn-primary" style="background: #ec4899; border: none;">🌳 Fibonacci (Binary Tree)</button>
+            <button id="btn-rec-reset" class="btn btn-action">🔄 Reset</button>
+          </div>
+        </div>
+      `;
+      this.bindRecursionEvents();
+
+    } else if (this.algo === 'linked-list') {
       this.container.innerHTML = `
         <div class="op-deck-container">
           <label style="font-size: 0.85rem; color: var(--text-secondary);">Interactive Singly Linked List Operations:</label>
@@ -104,6 +121,19 @@ export class InputPanelController {
       `;
       this.bindDefaultEvents();
     }
+  }
+
+  bindRecursionEvents() {
+    const nInput = document.getElementById('rec-n-input');
+    document.getElementById('btn-rec-factorial')?.addEventListener('click', () => {
+      this.triggerAction('factorial', nInput?.value);
+    });
+    document.getElementById('btn-rec-fibonacci')?.addEventListener('click', () => {
+      this.triggerAction('fibonacci', nInput?.value);
+    });
+    document.getElementById('btn-rec-reset')?.addEventListener('click', () => {
+      this.triggerAction('factorial', 4);
+    });
   }
 
   bindLinkedListEvents() {

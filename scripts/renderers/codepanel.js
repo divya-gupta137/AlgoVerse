@@ -108,6 +108,16 @@ export const ALGORITHM_CODE_SNIPPETS = {
     '  while (curr && curr.data !== target) curr = curr.next;',
     '  return curr; // Returns node or null',
     '}'
+  ],
+  'recursion-ops': [
+    'function factorial(n) {',
+    '  if (n <= 1) return 1; // Base Case',
+    '  return n * factorial(n - 1); // Recursive Step',
+    '}',
+    'function fibonacci(n) {',
+    '  if (n <= 1) return n; // Base Case',
+    '  return fibonacci(n - 1) + fibonacci(n - 2); // Binary Tree',
+    '}'
   ]
 };
 

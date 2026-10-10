@@ -102,5 +102,13 @@ export const CATALOG_ITEMS = [
     description: 'Sequence of node elements where each node stores data and a pointer reference to the next node.',
     complexity: { time: 'O(n)', space: 'O(n)' },
     url: 'visualizer.html?topic=structures&algo=linked-list'
+  },
+  {
+    id: 'recursion-ops',
+    title: 'Recursion (Call Stack & Tree)',
+    category: 'structures',
+    description: 'Self-referential algorithm execution trace visualizing LIFO Call Stack memory frames and binary recursion tree hierarchy.',
+    complexity: { time: 'O(2ⁿ)', space: 'O(n)' },
+    url: 'visualizer.html?topic=structures&algo=recursion-ops'
   }
 ];
