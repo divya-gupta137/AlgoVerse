@@ -28,7 +28,7 @@ export function createFrame({
     // Deep clone mutable array/object state so future mutations don't alter this snapshot!
     data: typeof data === 'object' && data !== null ? structuredClone(data) : data,
     highlights: [...highlights],
-    pointers: { ...pointers },
+    pointers: Array.isArray(pointers) ? [...pointers] : (typeof pointers === 'object' && pointers !== null ? { ...pointers } : {}),
     subarrays: subarrays ? structuredClone(subarrays) : null,
     codeLine,
     narration,

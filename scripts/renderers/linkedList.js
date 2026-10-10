@@ -12,7 +12,9 @@ export class LinkedListRenderer {
     if (!this.container) return;
 
     const nodes = frame.data || [];
-    const activePointers = frame.pointers || [];
+    const activePointers = Array.isArray(frame.pointers) 
+      ? frame.pointers 
+      : (frame.pointers && typeof frame.pointers === 'object' ? Object.values(frame.pointers) : []);
 
     if (nodes.length === 0) {
       this.container.innerHTML = `
