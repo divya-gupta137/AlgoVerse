@@ -1020,3 +1020,173 @@
   margin-left: 4px;
 }
 
+/* ==========================================================================
+   Playground Split IDE Layout & Terminal Output Styling
+   ========================================================================== */
+
+.playground-page {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.playground-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.toolbar-left, .toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.preset-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.custom-select {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-run {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-run:hover {
+  background: #059669;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .playground-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.editor-container-card, .terminal-container-card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.editor-header, .terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e293b;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.editor-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.line-numbers-gutter {
+  width: 42px;
+  padding: 0.75rem 0.4rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  color: #475569;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  text-align: right;
+  user-select: none;
+  overflow: hidden;
+}
+
+.code-editor-textarea {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: #f8fafc;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: #020617;
+}
+
+.term-line {
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.term-info { color: #64748b; }
+.term-log { color: #38bdf8; }
+.term-warn { color: #fbbf24; }
+.term-error { color: #f87171; }
+
+.terminal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: var(--font-mono);
+}
+
+.badge-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.status-running { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.status-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.status-error { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+
