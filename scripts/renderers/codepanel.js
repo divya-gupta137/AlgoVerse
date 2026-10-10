@@ -88,6 +88,26 @@ export const ALGORITHM_CODE_SNIPPETS = {
     '  enqueue(val) { this.items.push(val); } // FIFO Rear',
     '  dequeue() { return this.items.shift(); } // FIFO Front',
     '}'
+  ],
+  'linked-list': [
+    'class Node { constructor(data) { this.data = data; this.next = null; } }',
+    'function insertHead(head, val) {',
+    '  let newNode = new Node(val);',
+    '  newNode.next = head; return newNode;',
+    '}',
+    'function insertTail(head, val) {',
+    '  let newNode = new Node(val); let curr = head;',
+    '  while (curr.next !== null) curr = curr.next;',
+    '  curr.next = newNode;',
+    '}',
+    'function deleteHead(head) {',
+    '  if (!head) return null; return head.next;',
+    '}',
+    'function search(head, target) {',
+    '  let curr = head;',
+    '  while (curr && curr.data !== target) curr = curr.next;',
+    '  return curr; // Returns node or null',
+    '}'
   ]
 };
 
@@ -142,8 +162,8 @@ export class CodePanelRenderer {
     // VS Code Syntax Colorizing Regex Rules
     return escaped
       .replace(/(\/\/.+$)/g, '<span class="syn-cm">$1</span>') // Comments
-      .replace(/\b(function|const|let|var|if|else|while|for|return|class)\b/g, '<span class="syn-kw">$1</span>') // Keywords
-      .replace(/\b(swap|bubbleSort|selectionSort|insertionSort|mergeSort|quickSort|linearSearch|binarySearch|push|pop|peek|enqueue|dequeue|shift)\b/g, '<span class="syn-fn">$1</span>') // Functions
+      .replace(/\b(function|const|let|var|if|else|while|for|return|class|new|constructor)\b/g, '<span class="syn-kw">$1</span>') // Keywords
+      .replace(/\b(swap|bubbleSort|selectionSort|insertionSort|mergeSort|quickSort|linearSearch|binarySearch|push|pop|peek|enqueue|dequeue|shift|insertHead|insertTail|deleteHead|search)\b/g, '<span class="syn-fn">$1</span>') // Functions
       .replace(/\b(\d+)\b/g, '<span class="syn-num">$1</span>'); // Numbers
   }
 }

@@ -10,6 +10,7 @@ import { BarRenderer } from '../renderers/bars.js';
 import { CodePanelRenderer } from '../renderers/codepanel.js';
 import { NarrationRenderer } from '../renderers/narration.js';
 import { StackQueueRenderer } from '../renderers/stackQueue.js';
+import { LinkedListRenderer } from '../renderers/linkedList.js';
 
 import { generateBubbleSortFrames } from '../producer/sorting/bubblesort.js';
 import { generateSelectionSortFrames } from '../producer/sorting/selectionsort.js';
@@ -24,6 +25,7 @@ import { generateArrayOpsFrames } from '../producer/structures/arrayOps.js';
 import { generateStringOpsFrames } from '../producer/structures/stringOps.js';
 import { generateStackOpsFrames } from '../producer/structures/stackOps.js';
 import { generateQueueOpsFrames } from '../producer/structures/queueOps.js';
+import { generateLinkedListFrames, createInitialLinkedList } from '../producer/structures/linkedList.js';
 
 class VisualizerPageController {
   constructor() {
@@ -34,12 +36,14 @@ class VisualizerPageController {
 
     this.barRenderer = null;
     this.stackQueueRenderer = null;
+    this.linkedListRenderer = null;
     this.codePanelRenderer = null;
     this.narrationRenderer = null;
 
     this.currentArray = [45, 18, 85, 32, 92, 23, 67, 12];
     this.currentStack = []; // Starts EMPTY
     this.currentQueue = []; // Starts EMPTY
+    this.currentLinkedList = createInitialLinkedList();
 
     const urlParams = new URLSearchParams(window.location.search);
     this.topic = urlParams.get('topic') || 'sorting';
@@ -57,6 +61,7 @@ class VisualizerPageController {
 
     this.barRenderer = new BarRenderer(this.viewportElement);
     this.stackQueueRenderer = new StackQueueRenderer(this.viewportElement);
+    this.linkedListRenderer = new LinkedListRenderer(this.viewportElement);
     this.codePanelRenderer = new CodePanelRenderer(this.codeContainerElement);
     this.narrationRenderer = new NarrationRenderer(this.narrationTextElement);
 
@@ -65,7 +70,9 @@ class VisualizerPageController {
 
     this.player.onFrameChange = (frame, index, total) => {
       if (frame) {
-        if (this.algo === 'stack-ops') {
+        if (this.algo === 'linked-list') {
+          if (this.linkedListRenderer) this.linkedListRenderer.render(frame);
+        } else if (this.algo === 'stack-ops') {
           if (this.stackQueueRenderer) this.stackQueueRenderer.render(frame, 'stack');
         } else if (this.algo === 'queue-ops') {
           if (this.stackQueueRenderer) this.stackQueueRenderer.render(frame, 'queue');
@@ -92,7 +99,14 @@ class VisualizerPageController {
       this.currentArray = [...dataset];
     }
 
-    if (this.algo === 'stack-ops') {
+    if (this.algo === 'linked-list') {
+      if (actionType === 'reset') this.currentLinkedList = createInitialLinkedList();
+      const { frames, updatedList } = generateLinkedListFrames(this.currentLinkedList, actionType, value, target);
+      this.currentLinkedList = updatedList;
+      this.player.loadFrames(frames);
+      this.player.play();
+
+    } else if (this.algo === 'stack-ops') {
       if (actionType === 'reset') this.currentStack = [];
       if (actionType === 'random') this.currentStack = [15, 30, 45, 60];
       const { frames, updatedStack } = generateStackOpsFrames(this.currentStack, actionType, value);
@@ -132,7 +146,12 @@ class VisualizerPageController {
       this.codePanelRenderer.loadAlgorithmCode(this.algo);
     }
 
-    if (this.algo === 'selection-sort') {
+    if (this.algo === 'linked-list') {
+      if (this.titleElement) this.titleElement.textContent = 'Singly Linked List';
+      if (this.categoryElement) this.categoryElement.textContent = 'Data Structures';
+      const { frames: llFrames } = generateLinkedListFrames(this.currentLinkedList, 'init');
+      frames = llFrames;
+    } else if (this.algo === 'selection-sort') {
       if (this.titleElement) this.titleElement.textContent = 'Selection Sort';
       if (this.categoryElement) this.categoryElement.textContent = 'Sorting';
       frames = generateSelectionSortFrames(this.currentArray);
