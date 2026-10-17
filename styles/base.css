@@ -41,8 +41,13 @@ a:hover {
 button {
   cursor: pointer;
   border: none;
-  outline: 2px solid var(--border-focus);
+  outline: none;
   font-family: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
 }
 
 /* Accessibility: Reduced Motion */

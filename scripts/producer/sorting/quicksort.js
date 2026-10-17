@@ -45,7 +45,7 @@ export function generateQuickSortFrames(initialArray) {
       pointers: { low, high, PIVOT: high },
       subarrays: activeSubarrays.map(r => [...r]),
       codeLine: 4,
-      narration: `🎯 PIVOT CHOSEN: ${pivot} at index ${high}. Partitioning range [${low}..${high}]. Elements < ${pivot} move left; elements > ${pivot} move right.`,
+      narration: `[PIVOT SELECTED] Pivot ${pivot} at index ${high}. Partitioning range [${low}..${high}]. Elements < ${pivot} move left; elements > ${pivot} move right.`,
       stats: { comparisons, swaps }
     }));
 

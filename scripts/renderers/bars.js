@@ -1,6 +1,6 @@
 /**
  * AlgoVerse — DOM Array Bar Renderer
- * Renders array frame data into dynamic vertical bars with optional Sub-array grouping.
+ * Renders array frame data into dynamic vertical bars with optional Sub-array grouping and Color Legend.
  */
 
 export class BarRenderer {
@@ -32,22 +32,25 @@ export class BarRenderer {
       if (op === 'sorted') {
         stateClass = 'highlight-sorted';
       } else if (highlights.includes(idx)) {
-        if (op === 'swap') {
-          stateClass = 'highlight-swap';
-        } else if (op === 'pivot') {
-          stateClass = 'highlight-pivot';
+        if (op === 'swap' || op === 'remove') {
+          stateClass = 'highlight-swap'; // Red
+        } else if (op === 'pivot' || op === 'insert') {
+          stateClass = 'highlight-pivot'; // Blue
         } else {
-          stateClass = 'highlight-compare';
+          stateClass = 'highlight-compare'; // Yellow
         }
       }
 
-      const activePointers = Object.entries(pointers)
+      const activePointerNames = Object.entries(pointers)
         .filter(([_, ptrIdx]) => ptrIdx === idx)
-        .map(([name]) => name)
-        .join(',');
+        .map(([name]) => name);
 
-      const pointerTag = activePointers 
-        ? `<span class="pointer-badge">${activePointers}</span>` 
+      // Stack each pointer badge separately to prevent overlap
+      const pointerTag = activePointerNames.length > 0
+        ? activePointerNames.map((name, stackIdx) => {
+            const topOffset = -22 - (stackIdx * 20); // 22px base + 20px per extra badge
+            return `<span class="pointer-badge" style="top:${topOffset}px">${name}</span>`;
+          }).join('')
         : '';
 
       return `
@@ -60,9 +63,11 @@ export class BarRenderer {
       `;
     };
 
+    let innerHtml = '';
+
     // Divide & Conquer Rendering: If frame contains sub-array groupings
     if (subarrays && Array.isArray(subarrays) && subarrays.length > 0) {
-      this.container.innerHTML = subarrays.map((range) => {
+      innerHtml = subarrays.map((range) => {
         const [start, end] = range;
         const groupBars = [];
         for (let i = start; i <= end; i++) {
@@ -83,8 +88,22 @@ export class BarRenderer {
         `;
       }).join('');
     } else {
-      // Standard Single-Container Rendering (Bubble, Selection, Insertion Sort)
-      this.container.innerHTML = data.map((val, idx) => renderBar(val, idx)).join('');
+      // Standard Single-Container Rendering
+      innerHtml = data.map((val, idx) => renderBar(val, idx)).join('');
     }
+
+    // Append Legend Bar for Array Ops
+    if (op === 'array-ops') {
+      innerHtml += `
+        <div class="array-legend-bar">
+          <span class="legend-item"><span class="legend-dot dot-active"></span> Comparing (Scan)</span>
+          <span class="legend-item"><span class="legend-dot dot-insert"></span> Inserting / Shift</span>
+          <span class="legend-item"><span class="legend-dot dot-remove"></span> Removing (Pop)</span>
+          <span class="legend-item"><span class="legend-dot dot-found"></span> Target Found</span>
+        </div>
+      `;
+    }
+
+    this.container.innerHTML = innerHtml;
   }
 }

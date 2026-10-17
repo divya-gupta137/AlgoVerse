@@ -21,7 +21,8 @@ export function createFrame({
   subarrays = null,
   codeLine = null,
   narration = '',
-  stats = {}
+  stats = {},
+  ...rest
 }) {
   return {
     op,
@@ -32,6 +33,7 @@ export function createFrame({
     subarrays: subarrays ? structuredClone(subarrays) : null,
     codeLine,
     narration,
-    stats: { ...stats }
+    stats: { ...stats },
+    ...rest
   };
 }

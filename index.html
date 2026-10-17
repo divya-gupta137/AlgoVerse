@@ -31,43 +31,80 @@
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="learn.html" class="nav-link">Learn</a></li>
           <li><a href="visualizer.html" class="nav-link">Visualizer</a></li>
-          <li><a href="playground.html" class="nav-link">Playground</a></li>
         </ul>
       </nav>
 
       <!-- Theme Switcher Button -->
       <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
-        ☀️ Light Mode
+        <svg class="theme-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span>Light Mode</span>
       </button>
     </div>
   </header>
 
+  <!-- Ambient DSA Geometric Visual Background -->
+  <div class="hero-dsa-backdrop" aria-hidden="true">
+    <div class="dsa-ambient-radial-glow glow-1"></div>
+    <div class="dsa-ambient-radial-glow glow-2"></div>
+    <div class="dsa-grid-pattern"></div>
+    <svg class="dsa-constellation-svg" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Network Nodes & Connecting Edges -->
+      <path d="M150 180 L350 120 L550 200 L750 110 L950 190 L1100 130" stroke="rgba(245, 158, 11, 0.12)" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <path d="M200 380 L350 290 L550 360 L750 270 L950 340" stroke="rgba(6, 182, 212, 0.12)" stroke-width="1.5"/>
+      <path d="M350 120 L350 290 M550 200 L550 360 M750 110 L750 270 M950 190 L950 340" stroke="rgba(139, 92, 246, 0.1)" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <!-- Tree Branching -->
+      <path d="M600 80 L480 180 M600 80 L720 180 M480 180 L420 280 M480 180 L540 280 M720 180 L660 280 M720 180 L780 280" stroke="rgba(16, 185, 129, 0.13)" stroke-width="1.5"/>
+      
+      <!-- Nodes / Vertices -->
+      <circle cx="600" cy="80" r="6" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+      <circle cx="480" cy="180" r="5" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="720" cy="180" r="5" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="420" cy="280" r="4" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="540" cy="280" r="4" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="660" cy="280" r="4" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="780" cy="280" r="4" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="150" cy="180" r="4.5" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="350" cy="120" r="5" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+      <circle cx="750" cy="110" r="5" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="950" cy="190" r="5" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="1100" cy="130" r="4" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+      <circle cx="200" cy="380" r="4" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35"/>
+      <circle cx="350" cy="290" r="5" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="550" cy="360" r="5" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="750" cy="270" r="5" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.35"/>
+      <circle cx="950" cy="340" r="4" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35"/>
+    </svg>
+  </div>
+
   <!-- Main Landing Content -->
-  <main class="container">
+  <main class="container home-main-container">
     <!-- Hero Section -->
     <section class="hero-placeholder">
       <h1>Master DSA <span>Step-by-Step</span></h1>
       <p>Interactive Data Structures & Algorithms visualizer engine built with pure Vanilla JavaScript.</p>
       
-      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href="learn.html" class="btn btn-primary">
-          Explore Catalog →
+          Explore Catalog &rarr;
         </a>
         <a href="visualizer.html?topic=sorting&algo=bubble-sort" class="btn btn-secondary">
-          Open Visualizer ⚡
+          Open Visualizer &rarr;
         </a>
       </div>
     </section>
 
     <!-- Key Feature Grid -->
-    <section style="margin-top: 4rem;">
+    <section style="margin-top: 3.5rem; margin-bottom: 4rem;">
       <h2 style="text-align: center; margin-bottom: 2rem;">Why AlgoVerse?</h2>
       
       <div class="card-grid">
         <div class="card">
           <div>
             <div class="card-header">
-              <h3 class="card-title">⚡ Reusable Frame Engine</h3>
+              <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Reusable Frame Engine
+              </h3>
             </div>
             <p class="card-desc">Algorithms generate state snapshots (frames) decoupling calculation logic completely from DOM playback.</p>
           </div>
@@ -76,7 +113,10 @@
         <div class="card">
           <div>
             <div class="card-header">
-              <h3 class="card-title">🔍 Interactive Control</h3>
+              <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Interactive Control
+              </h3>
             </div>
             <p class="card-desc">Play, pause, step forward, step backward, adjust speed (0.5x–4x), or scrub through the timeline freely.</p>
           </div>
@@ -85,7 +125,10 @@
         <div class="card">
           <div>
             <div class="card-header">
-              <h3 class="card-title">🎓 Code & Narration Sync</h3>
+              <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Code & Narration Sync
+              </h3>
             </div>
             <p class="card-desc">Watch active code line numbers highlight dynamically alongside plain English explanations for every step.</p>
           </div>
@@ -97,7 +140,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 AlgoVerse. Built with Vanilla JavaScript for Viva & Web Fundamentals.</p>
+      <p>&copy; 2026 AlgoVerse. Interactive Data Structures & Algorithms Visualizer Platform.</p>
     </div>
   </footer>
 

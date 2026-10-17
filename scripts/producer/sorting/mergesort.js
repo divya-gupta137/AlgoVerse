@@ -45,9 +45,9 @@ export function generateMergeSortFrames(initialArray) {
     if (lvlIdx === 0) {
       narrationText = `Starting Merge Sort (Divide & Conquer). Initial array of size ${arr.length}.`;
     } else if (lvlIdx === divideLevels.length - 1) {
-      narrationText = `✂️ DIVIDE COMPLETE: Array fully split into ${groupCount} base sub-arrays of size 1. Merging & sorting begins now!`;
+      narrationText = `[DIVIDE COMPLETE] Array fully split into ${groupCount} base sub-arrays of size 1. Merging & sorting begins now.`;
     } else {
-      narrationText = `✂️ DIVIDE PHASE: Splitting array into ${groupCount} sub-arrays.`;
+      narrationText = `[DIVIDE PHASE] Splitting array into ${groupCount} sub-arrays.`;
     }
 
     frames.push(createFrame({

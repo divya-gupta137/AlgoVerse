@@ -44,22 +44,13 @@ export const CATALOG_ITEMS = [
     url: 'visualizer.html?topic=sorting&algo=quick-sort'
   },
 
-  // Searching Algorithms
   {
     id: 'linear-search',
-    title: 'Linear Search',
+    title: 'Searching Algorithms',
     category: 'searching',
-    description: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.',
-    complexity: { time: 'O(n)', space: 'O(1)' },
+    description: 'Linear Search (O(n) sequential scan) and Binary Search (O(log n) divide & conquer) — switch between both with the algorithm tabs.',
+    complexity: { time: 'O(n) / O(log n)', space: 'O(1)' },
     url: 'visualizer.html?topic=searching&algo=linear-search'
-  },
-  {
-    id: 'binary-search',
-    title: 'Binary Search',
-    category: 'searching',
-    description: 'Efficient search algorithm for sorted arrays that repeatedly divides search interval in half using low, mid, and high pointers.',
-    complexity: { time: 'O(log n)', space: 'O(1)' },
-    url: 'visualizer.html?topic=searching&algo=binary-search'
   },
 
   // Data Structures
@@ -102,6 +93,14 @@ export const CATALOG_ITEMS = [
     description: 'Sequence of node elements where each node stores data and a pointer reference to the next node.',
     complexity: { time: 'O(n)', space: 'O(n)' },
     url: 'visualizer.html?topic=structures&algo=linked-list'
+  },
+  {
+    id: 'hash-table',
+    title: 'Hash Table',
+    category: 'structures',
+    description: 'Associative key-value store with polynomial rolling hash code, modulo indexing, and collision resolution (Separate Chaining & Linear Probing).',
+    complexity: { time: 'O(1) Avg', space: 'O(n)' },
+    url: 'visualizer.html?topic=structures&algo=hash-table'
   },
   {
     id: 'recursion-ops',

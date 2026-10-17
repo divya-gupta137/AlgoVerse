@@ -13,6 +13,7 @@ node_modules/
 
 # Temporary / Scratch
 scratch/
+dev-server.js
 
 
 # Internal Docs, Rules, Assets & Study Notes (Keep Local Only)

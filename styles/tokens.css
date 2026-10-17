@@ -1,29 +1,29 @@
 /* AlgoVerse — Design Tokens (tokens.css)
-Graphite & Amber Theme System */
+   Jet Black & Amber Theme System */
 
 :root {
-  /* Dark Theme Colors (Default) */
-  --bg-primary: #0f1117;
-  --bg-surface: #1a1d24;
-  --bg-card: #222631;
+  /* Dark Theme Colors (Default) — Jet Black OLED System */
+  --bg-primary: #000000;         /* Pitch Jet Black Canvas (replaces bluish #0f1117) */
+  --bg-surface: #0c0c0e;         /* Elevated Surface for Navbar, Outer Containers & Viewports */
+  --bg-card: #141416;            /* Neutral Dark Charcoal for Cards & Control Clusters */
   
-  --text-primary: #f0f2f5;
-  --text-secondary: #9da5b4;
-  --text-muted: #626a79;
+  --text-primary: #f4f4f5;       /* Crisp High-Contrast White */
+  --text-secondary: #a1a1aa;     /* Neutral Zinc Secondary Text (removes blue undertones) */
+  --text-muted: #71717a;         /* Neutral Zinc Muted Text */
   
-  --accent-color: #ffb020;        /* Amber */
+  --accent-color: #ffb020;       /* Amber Accent */
   --accent-hover: #e09816;
-  --accent-subtle: rgba(255, 176, 32, 0.15);
+  --accent-subtle: rgba(255, 176, 32, 0.12);
   
-  --border-color: #2e3440;
+  --border-color: #242427;       /* Neutral Charcoal Border (replaces Nord blue-gray #2e3440) */
   --border-focus: #ffb020;
   
-  /* Visualization Color Tokens */
-  --viz-default: #3b82f6;        /* Blue */
+  /* Visualization Color Tokens (Vivid & High-Contrast against Pitch Black) */
+  --viz-default: #38bdf8;        /* Sky Blue */
   --viz-compare: #f59e0b;        /* Amber/Orange */
-  --viz-swap: #ef4444;           /* Red */
+  --viz-swap: #ef4444;           /* Vivid Red */
   --viz-sorted: #10b981;         /* Emerald Green */
-  --viz-pivot: #8b5cf6;          /* Purple */
+  --viz-pivot: #a855f7;          /* Purple */
 
   /* Simple Durations & Motion */
   --dur-fast: 150ms;

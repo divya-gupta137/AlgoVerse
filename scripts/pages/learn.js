@@ -88,7 +88,7 @@ class CatalogController {
         <div class="card-footer">
           <span class="badge badge-complexity">${item.complexity.time}</span>
           <a href="${item.url}" class="btn btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.85rem;">
-            Visualize ⚡
+            Launch Studio &rarr;
           </a>
         </div>
       </div>
